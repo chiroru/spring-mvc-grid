@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Grid</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Grid</h1>
+	<hr/>
+	<form id="gridForm" th:action="@{/grid}" >
+	<input id="id" name="id" type="text" data-bind="value: id"/>
+	<table>
+	  <thead>
+        <tr>
+          <th>name</th>
+          <th>address</th>
+	    </tr>
+	  </thead>
+	  <tbody data-bind="foreach: items">
+        <tr>
+          <td><input id="name" name="name" type="text" data-bind="value: name"/></td>
+          <td><input id="address" name="address" type="text" data-bind="value: address"/></td>
+        </tr>
+      </tbody>
+    </table>
+    <button id="reset" type="submit" data-bind="click: reset">reset</button>
+    </form>
+</body>
+<script type="text/javascript" src="../../../resources/js/jquery-1.7.2.min.js" th:src="@{/resources/js/jquery-1.7.2.min.js}"></script>
+<script type="text/javascript" src="../../../resources/js/knockout-2.0.0.js" th:src="@{/resources/js/knockout-2.0.0.js}"></script>
+<script type="text/javascript" src="../../../resources/js/grid.js" th:src="@{/resources/js/grid.js}"></script>
+</html>
