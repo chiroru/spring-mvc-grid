@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -12,9 +13,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/grid")
 public class GridController {
 
-	@RequestMapping(method=RequestMethod.GET)
+	@RequestMapping(value = "update", method=RequestMethod.POST, headers = "Accept=application/xml, application/json")
 	@ResponseBody
-	public List<Contact> initialize() {
+	public List<Contact> update(@RequestBody Contact contact) {
 
 		List<Contact> results = new ArrayList<Contact>();
 		results.add(new Contact("name1", "address1"));

@@ -14,7 +14,19 @@
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
+<!-- <filter>
+    <filter-name>httpRequestDumpFilter</filter-name>
+    <filter-class>org.springframework.samples.grid.HttpRequestDumpFilter</filter-class>
+   <init-param>
+    <param-name>logging.Level</param-name>
+    <param-value>FINE</param-value>
+   </init-param>
+  </filter>
 
+  <filter-mapping>
+    <filter-name>httpRequestDumpFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping> -->
   <servlet>
     <description>DispatcherServlet</description>
     <servlet-name>spring-mvc-dispatch</servlet-name>
