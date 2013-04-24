@@ -15,12 +15,12 @@ public class GridController {
 
 	@RequestMapping(value = "update", method=RequestMethod.POST, headers = "Accept=application/xml, application/json")
 	@ResponseBody
-	public List<Contact> update(@RequestBody Contact contact) {
+	public List<Contact> update(@RequestBody List<Contact> contact) {
 
 		List<Contact> results = new ArrayList<Contact>();
-		results.add(new Contact("name1", "address1"));
-		results.add(new Contact("name2", "address2"));
-		results.add(new Contact("name3", "address3"));
+		results.add(new Contact("name1-updated", "address1"));
+		results.add(new Contact("name2-updated", "address2"));
+		results.add(new Contact("name3-updated", "address3"));
 
 		return results;
 	}

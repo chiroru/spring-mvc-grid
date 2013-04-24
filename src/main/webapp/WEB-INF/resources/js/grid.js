@@ -18,7 +18,7 @@ jQuery.extend({
                     else if (t == "object" && v !== null)
                         v = jQuery.stringify(v);
                     else if (t == "function" && v !== null)
-                        v = v();
+                        v = '"' + v() + '"';
                     json.push((arr ? "" : '"' + n + '":') + String(v));
                 }
             }
@@ -39,8 +39,9 @@ jQuery(document).ready(function() {
                        { name: ko.observable("name2"), address: ko.observable("address2") }
                        ]);
 
-        var gf = jQuery("#gridForm");
         self.update = function() {
+        	var d = self.items.splice(0);
+            var gf = jQuery("#gridForm");
             jQuery.ajax({
                 headers: { 
                     'Accept': 'application/json',
@@ -49,9 +50,9 @@ jQuery(document).ready(function() {
                 url : gf.attr("action"),
                 type : "POST",
                 dataType : 'json',
-                data : jQuery.stringify(self.items.splice(0)),
+                data : jQuery.stringify(d),
                 contentType: "application/json; charset=utf-8",
-                success : function(messages) { alert(messages); },
+                success : function(messages) { alert(jQuery.stringify(messages)); console.log(messages); for (var i in messages) {self.items.push(messages[i])};},
                 error : function(XMLHttpRequest, textStatus, errorThrown) {
                     console.log(XMLHttpRequest);
                     console.log(textStatus);
